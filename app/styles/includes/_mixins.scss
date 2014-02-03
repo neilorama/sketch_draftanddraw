@@ -1,0 +1,214 @@
+@mixin sizeInEms ($px, $line: 20, $parentPx: 16, $parentLine: 16) {
+  font-size: ($px / 16) * 16/$parentPx * 1em;
+  line-height: ($line / $px) * 1em;
+}
+
+@mixin link-decoration {
+  border-bottom: 1px solid $color-text;
+}
+
+@mixin font-bold {
+   font-family: $font-heading;
+   font-weight: normal;
+}
+
+@mixin font-serif {
+   font-family: $font-serif;
+   font-weight: normal;
+}
+
+@mixin font-italic {
+  font-family: $font-serif-italic;
+  font-style: normal;
+}
+
+@mixin font-enable-italic {
+  em, i {
+    font-weight: normal;
+    font-style: italic;
+  }
+}
+
+@mixin font-hand {
+  // update with the actual font
+  font-family: $font-hand;
+  font-style: italic;
+  display: block;
+  // text-transform: uppercase;
+}
+
+@mixin msRotate45 {
+
+  // look into IE8 fallback options. damn.
+
+  // -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476)"; 
+}
+
+
+@mixin arrow-right($width, $color, $right: 0, $top: $width) {
+  &:after {
+    content: "";
+    width: $width;
+    height: $width;
+    position: absolute;
+    right: $right;
+    border-top: 1px solid $color;
+    border-right: 1px solid $color;
+    @include rotate(45deg);
+    top: 50%;
+    margin-top: -$top*1.41*0.5;
+  }
+}
+
+@mixin arrow-down($width, $color, $right: 0, $top: $width) {
+  
+  &:after {
+        content: "";
+        width: $width;
+        height: $width;
+        border-bottom: 1px solid $color;
+        border-right: 1px solid $color;
+        @include transition(all $animation-time $animation-easing);
+        @include transform(rotate(45deg));
+        @include msRotate45;
+        position: absolute;
+        right: $right;
+        top: 50%;
+        margin-top: -$top*1.41*0.5;
+    }
+}
+
+@mixin circle($r) {
+  position: relative;
+  &:before {
+      content: "";
+      width: $r*2;
+      height: $r*2;
+      @include border-radius($r+1px);
+      border: 1px solid $color-bg-light;
+      position: absolute;
+      left: -10px - $r*2;
+      top: 8px - $r*2;
+  }
+}
+
+
+@mixin reverseHover {
+  @include transition(all $animation-time $animation-easing);
+  &:hover {
+    background: $color-text;
+    color: $color-bg-light;
+  }
+}
+
+@mixin reverseText {
+  color: $color-bg-light;
+  a {
+    color: $color-bg-light;
+  }
+}
+
+@mixin mobile-hide {
+  @media screen and (max-width: $size-mobile) {
+    display: none;
+  }
+}
+
+@mixin tablet-hide {
+  @media screen and (max-width: $size-tablet)  {
+    display: none;
+  }
+}
+
+@mixin tablet-show {
+  @media screen and (max-width: $size-tablet)  {
+    display: inline;
+  }
+}
+
+@mixin triangle ($width, $colors) {
+  border-width: $width;
+  border-style: solid;
+  border-color: $colors;
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+
+@mixin sprite($pos) {
+  background: url("../images/sprite.svg") $pos no-repeat;
+}
+
+// Helpers
+
+@mixin hide-text {
+    text-indent: -9999px; 
+    white-space: nowrap;
+}
+
+@mixin inline-block {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top;
+}
+
+@mixin transition-transform($transition) {
+  -webkit-transition: -webkit-transform $transition;
+     -moz-transition: -moz-transform $transition;
+       -o-transition: -o-transform $transition;
+          transition: transform $transition;
+}
+
+
+// Retina Images
+
+@mixin image-2x($image, $width, $height) {
+  @media (min--moz-device-pixel-ratio: 1.3),
+         (-o-min-device-pixel-ratio: 2.6/2),
+         (-webkit-min-device-pixel-ratio: 1.3),
+         (min-device-pixel-ratio: 1.3),
+         (min-resolution: 1.3dppx) {
+    /* on retina, use image that's scaled by 2 */
+    background-image: url($image);
+    background-size: $width $height;
+  }
+}
+
+
+@mixin clearfix {
+   /**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+  &:before,
+  &:after {
+      content: " "; /* 1 */
+      display: table; /* 2 */
+  }
+
+  &:after {
+      clear: both;
+  }
+
+  /**
+   * For IE 6/7 only
+   * Include this rule to trigger hasLayout and contain floats.
+   */
+      *zoom: 1;
+  
+}
+
+
+@mixin transition-transform($transition) {
+  -webkit-transition: -webkit-transform $transition;
+     -moz-transition: -moz-transform $transition;
+       -o-transition: -o-transform $transition;
+          transition: transform $transition;
+}

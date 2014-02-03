@@ -1,0 +1,27 @@
+body{
+	height:100%;
+	width:100%;
+	background:$color-bg;
+}
+html {
+       overflow-y: scroll;
+}
+
+input, textarea, button {
+    &:focus { outline: none; }
+    -webkit-border-radius: 0;
+}
+
+button, select {
+    cursor: pointer;
+}
+
+a {
+    color: $color-text;
+    text-decoration: none;
+}
+
+img {
+    @include transition(opacity 0.3 ease);
+}
+
