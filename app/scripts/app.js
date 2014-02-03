@@ -4,7 +4,8 @@ angular.module('sketchDraftanddrawApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'sketch'
 ])
   .config(function ($routeProvider) {
     $routeProvider
