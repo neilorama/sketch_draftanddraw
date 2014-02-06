@@ -1,7 +1,7 @@
 body{
 	height:100%;
 	width:100%;
-	background:$color-bg;
+	// background:$color-bg;
 }
 html {
        overflow-y: scroll;
@@ -24,4 +24,19 @@ a {
 img {
     @include transition(opacity 0.3 ease);
 }
-
+.container {
+	position:relative;
+	.wrapper{
+		position:absolute;
+		left:0px;
+		top:0px;
+		width:90px;
+		height:100%;
+		background:$color-bg;
+	}
+}
+canvas { 
+	background:url(../images/lydianichols-header.jpg)  no-repeat; 
+	background-size:cover;
+	position:relative;
+}
