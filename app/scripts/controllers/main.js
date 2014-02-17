@@ -58,6 +58,16 @@ app.controller('MainCtrl', function ($scope) {
             }
         }
     });
+    $('.selection-sidebar h1').on('swipedown', function(e){
+        console.log('hello');
+        $(this).parent().parent().addClass('open');
+    });
+    $('.wrapper').on('swipeup', function(e){
+        $(this).removeClass('open');
+    });
+    $('.selection-sidebar h1').click(function(){
+        $(this).parent().parent().toggleClass('open');
+    });
     // controls to be refactored, possibly a factory but have to look into scope issues
     $scope.controls = function(type, attr){
         if ( type == 'radius'){
@@ -77,7 +87,7 @@ app.controller('MainCtrl', function ($scope) {
                              sketchCanvas.width,
                              sketchCanvas.height);
             data = sketchCanvas.canvas.toDataURL();
-            window.open(data, "toDataURL() image", "width=700, height=900");
+            window.open(data, "toDataURL() image", "width=700, height=900   ");
         } else if ( type == 'draw' ){
             sketchCanvas.putImageData(drawingSurfaceImageData, 0, 0);
         } else if ( type == 'clear' ){
@@ -85,7 +95,6 @@ app.controller('MainCtrl', function ($scope) {
         }
     }
 });
-
 
 
 

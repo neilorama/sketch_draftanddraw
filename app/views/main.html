@@ -4,8 +4,7 @@
 
     <!-- selection sidebar -->
     <aside class="selection-sidebar">
-      <h1>draft and draw - drawing tool</h1>
-
+      
       <ul class="size-controls">
         <li ng-click="controls('radius','10')">Biggest</li>
         <li ng-click="controls('radius','5')">Big</li>
@@ -13,11 +12,12 @@
         <li ng-click="controls('radius','1')">Small</li>
       </ul>
       <ul class="main-controls">
-        <li ng-click="controls('pencil', '')">Pencils</li>
-        <li ng-click="controls('eraser', '')">Erasers</li>
+        <li ng-click="controls('pencil', '')">Pencil</li>
+        <li ng-click="controls('eraser', '')">Eraser</li>
         <li ng-click="controls('save', '')">Save</li>
-        <li ng-click="controls('clear', '')">Grayscale</li>
-        <li ng-click="controls('draw', '')">Magic</li>
+        <li ng-click="controls('clear', '')">Clear</li>
+        <li ng-click="controls('draw', '')">Redraw</li>
+        <li ng-click="controls('magic', '')">Magic</li>
       </ul>
       <ul class="color-controls">
         <li ng-click="controls('color','#dbd8c7')">bage</li>
@@ -27,5 +27,6 @@
         <li ng-click="controls('color','#a36579')">red</li>
         <li ng-click="controls('color','#ffffff')">white</li>
       </ul>
+      <h1>draft and draw - drawing tool</h1>
     </aside>
   </div><!-- wrapper -->

@@ -10,7 +10,9 @@
     "angular-sanitize": "1.2.6",
     "angular-route": "1.2.6",
     "sketch.js": "latest",
-    "modernizr": "latest"
+    "modernizr": "latest",
+    "jquery.event.swipe": "latest",
+    "jquery.event.move": "latest"
   },
   "devDependencies": {
     "angular-mocks": "1.2.6",
