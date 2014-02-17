@@ -1,35 +1,31 @@
 <!--  canvas wrap section -->
-<canvas class="something" ng-controller="MainCtrl" ng-style="style()" resize></canvas>
   <!-- main app wrapper -->
   <div class="wrapper">
 
     <!-- selection sidebar -->
     <aside class="selection-sidebar">
-      <h1><a ng-href="#">draft and draw - drawing tool</a></h1>
+      <h1>draft and draw - drawing tool</h1>
 
       <ul class="size-controls">
-        <li><a ng-href="#">Biggest</a></li>
-        <li><a ng-href="#">Big</a></li>
-        <li><a ng-href="#">Medium</a></li>
-        <li><a ng-href="#">Small</a></li>
+        <li ng-click="controls('radius','10')">Biggest</li>
+        <li ng-click="controls('radius','5')">Big</li>
+        <li ng-click="controls('radius','3')">Medium</li>
+        <li ng-click="controls('radius','1')">Small</li>
       </ul>
       <ul class="main-controls">
-        <li><a ng-href="#">Pencils</a></li>
-        <li><a ng-href="#">Erasers</a></li>
-        <li><a ng-href="#">Save</a></li>
-        <li><a ng-href="#">Grayscale</a></li>
-        <li><a ng-href="#">Magic</a></li>
+        <li ng-click="controls('pencil', '')">Pencils</li>
+        <li ng-click="controls('eraser', '')">Erasers</li>
+        <li ng-click="controls('save', '')">Save</li>
+        <li ng-click="controls('clear', '')">Grayscale</li>
+        <li ng-click="controls('draw', '')">Magic</li>
       </ul>
       <ul class="color-controls">
-        <li><a ng-href="#">bage</a></li>
-        <li><a ng-href="#">gray</a></li>
-        <li><a ng-href="#">orange</a></li>
-        <li><a ng-href="#">green</a></li>
-        <li><a ng-href="#">red</a></li>
-        <li><a ng-href="#">white</a></li>
+        <li ng-click="controls('color','#dbd8c7')">bage</li>
+        <li ng-click="controls('color','#7a8080')">gray</li>
+        <li ng-click="controls('color','#d07666')">orange</li>
+        <li ng-click="controls('color','#33414d')">green</li>
+        <li ng-click="controls('color','#a36579')">red</li>
+        <li ng-click="controls('color','#ffffff')">white</li>
       </ul>
     </aside>
-    <section class="img-wrapper">
-
-    </section>
   </div><!-- wrapper -->

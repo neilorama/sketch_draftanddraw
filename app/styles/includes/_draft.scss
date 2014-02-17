@@ -33,10 +33,105 @@ img {
 		width:90px;
 		height:100%;
 		background:$color-bg;
+		-webkit-box-shadow: 4px 1px 13px 0px rgba(52, 50, 50, 0.55);
+		-moz-box-shadow:    4px 1px 13px 0px rgba(52, 50, 50, 0.55);
+		box-shadow:         4px 1px 13px 0px rgba(52, 50, 50, 0.55);
+		border-right: 1px solid #3a3a3a;
+		z-index:2;
+	}
+	h1 { 
+		@include hide-text;
+		background: $color-draft url(../images/dnd_logo.svg) 24px 8px no-repeat;
+		height:90px;
+		width:90px;
+		display:block;
+
+	}
+	ul.size-controls{ 
+		li { 
+			border-bottom:1px solid white;
+			cursor:pointer;
+			height: 55px;
+			position:relative;
+			&:after {
+				content: '';
+				background-color:$color-draft; 
+				display:block;
+				position:absolute;
+				top:50%;
+				left:50%;
+
+			}
+		}
+
+		li:nth-child(4n+1){
+			&:after {
+				height:20px;
+				width:62px;
+				margin-top:-10px;
+				margin-left:-31px;
+			}
+				
+		}
+		li:nth-child(4n+2){
+			&:after {
+				height:14px;
+				width:40px;
+				margin-top:-7px;
+				margin-left:-20px;
+			}
+		}
+		li:nth-child(4n+3){
+			&:after {
+				height:8px;
+				width:24px;
+				margin-top:-4px;
+				margin-left:-12px;
+			}
+		}
+		li:nth-child(4n+4){
+			&:after {
+				height:4px;
+				width:14px;
+				margin-top:-2px;
+				margin-left:-7px;
+			}	
+		}
 	}
 }
+ul.main-controls{
+	li{
+		font-family: 'Lato', sans-serif;
+		font-weight:300;
+		color:white;
+		text-align:center;
+		line-height:50px;
+		letter-spacing:1px;
+		cursor:pointer;
+	}
+}
+ul.color-controls{ @include clearfix;
+	$color-block:#dbd8c7, #7a8080, #d07666, #33414d, #a36579, #ffffff;
+	li { 
+		width:50%;
+		height:45px;
+		float:left;
+		@include hide-text;
+		padding:0px;
+		margin:0px;
+		cursor:pointer;
+	}
+	@for $i from 1 through length($color-block) {
+    li:nth-child(#{length($color-block)}n+#{$i}) {
+        background: nth($color-block, $i)
+    }
+}
+}
+
 canvas { 
-	background:url(../images/lydianichols-header.jpg)  no-repeat; 
+	background:url(../images/blank_chalkboard.png)  repeat; 
 	background-size:cover;
 	position:relative;
+	z-index:1;
+
 }
